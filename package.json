@@ -1,0 +1,32 @@
+{
+  "name": "turf-intersect",
+  "version": "0.0.0",
+  "description": "find the intersection of spatial features",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Turfjs/turf-intersect.git"
+  },
+  "keywords": [
+    "turf",
+    "gis",
+    "intersect"
+  ],
+  "author": "Morgan Herlocker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Turfjs/turf-intersect/issues"
+  },
+  "homepage": "https://github.com/Turfjs/turf-intersect",
+  "devDependencies": {
+    "tape": "~2.13.1",
+    "glob": "~4.0.0"
+  },
+  "dependencies": {
+    "jsts": "~0.13.4",
+    "turf-featurecollection": "~0.1.0"
+  }
+}
