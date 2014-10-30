@@ -1,10 +1,10 @@
 {
   "name": "turf-intersect",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "find the intersection of spatial features",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
