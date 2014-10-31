@@ -4,11 +4,6 @@ turf-intersect
 
 Find the intersection of two Polygon Features.
 
-```js
-var intersect = require('turf-intersect');
-var intersection = intersect(a, b);
-```
-
 ##Install
 
 ```sh
@@ -24,7 +19,7 @@ feature2|Geometry or Feature
 ##Usage
 
 ```js
-turf(poly1, poly2)
+intersect(poly1, poly2)
 ```
 
 ###Example

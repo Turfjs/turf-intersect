@@ -5,7 +5,7 @@ var intersect = require('../'),
 
 var REGEN = false;
 
-test('intersect', function(t){
+test('intersect -- featurecollection', function(t){
   glob.sync(__dirname + '/fixtures/in/*.json').forEach(function(input) {
       var fcs = JSON.parse(fs.readFileSync(input));
       var output = intersect(fcs[0], fcs[1]);
