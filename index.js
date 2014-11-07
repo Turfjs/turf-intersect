@@ -27,6 +27,15 @@ module.exports = function(polys1, polys2){
     parser = new jsts.io.GeoJSONParser();
 
   intersection = parser.write(intersection);
-  intersection = featurecollection([intersection]);
+  if(intersection.type === 'GeometryCollection' && intersection.geometries.length === 0) {
+    intersection = [];
+  } else {
+    intersection = {
+      type: "Feature",
+      geometry: intersection,
+      properties: {}
+    };
+  }
+
   return intersection;
 }
