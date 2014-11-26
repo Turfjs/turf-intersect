@@ -2,40 +2,34 @@
 var jsts = require('jsts');
 var featurecollection = require('turf-featurecollection');
 
-module.exports = function(polys1, polys2){
-  if(polys1.type === 'FeatureCollection') {
-  	polys1 = polys1.features[0];
-  } else if(polys1.type !== 'Feature') {
-  	polys1 = {
+module.exports = function(poly1, poly2){
+  if(poly1.type !== 'Feature') {
+  	poly1 = {
   		type: 'Feature',
-  		geometry: polys1
+  		geometry: poly1
   	};
   }
-  if(polys2.type === 'FeatureCollection') {
-  	polys2 = polys2.features[0];
-  } else if(polys2.type !== 'Feature') {
-  	polys2 = {
+  if(poly2.type !== 'Feature') {
+  	poly2 = {
   		type: 'Feature',
-  		geometry: polys2
+  		geometry: poly2
   	};
   }
 
   var reader = new jsts.io.GeoJSONReader(),
-    a = reader.read(JSON.stringify(polys1.geometry)),
-    b = reader.read(JSON.stringify(polys2.geometry)),
+    a = reader.read(JSON.stringify(poly1.geometry)),
+    b = reader.read(JSON.stringify(poly2.geometry)),
     intersection = a.intersection(b),
     parser = new jsts.io.GeoJSONParser();
 
   intersection = parser.write(intersection);
   if(intersection.type === 'GeometryCollection' && intersection.geometries.length === 0) {
-    intersection = [];
+    return;
   } else {
-    intersection = {
-      type: "Feature",
-      geometry: intersection,
-      properties: {}
+    return {
+      type: 'Feature',
+      properties: {},
+      geometry: intersection
     };
   }
-
-  return intersection;
 }
