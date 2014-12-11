@@ -22,8 +22,9 @@
   },
   "homepage": "https://github.com/Turfjs/turf-intersect",
   "devDependencies": {
-    "tape": "~2.13.1",
-    "glob": "~4.0.0"
+    "benchmark": "^1.0.0",
+    "glob": "~4.0.0",
+    "tape": "~2.13.1"
   },
   "dependencies": {
     "jsts": "~0.13.4",
