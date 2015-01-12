@@ -2,23 +2,32 @@
 var jsts = require('jsts');
 var featurecollection = require('turf-featurecollection');
 
+/**
+ * Find the intersection of two Polygons.
+ *
+ * @module turf/intersect
+ * @param {Polygon} a
+ * @param {Polygon} b
+ * @return {Polygon}
+ * @example
+ * var a = turf.polygon([[[10,0],[20,10],[20,0],[10,0]]]);
+ * a.properties.fill = '#0f0';
+ * var b = turf.polygon([[[10+5,0+5],[20+5,10+5],[20+5,0+5],[10+5,0+5]]]);
+ * b.properties.fill = '#00f';
+ * var erased = turf.erase(JSON.parse(JSON.stringify(a)), b);
+ * var a = turf.polygon([[[10,0],[20,10],[20,0],[10,0]]]);
+ * a.properties.fill = '#0f0';
+ * var b = turf.polygon([[[10+5,0+5],[20+5,10+5],[20+5,0+5],[10+5,0+5]]]);
+ * b.properties.fill = '#00f';
+ * var intersection = turf.intersect(a, b);
+ * //=a
+ * //=b
+ * //=intersection
+ */
 module.exports = function(poly1, poly2){
-  if(poly1.type !== 'Feature') {
-  	poly1 = {
-  		type: 'Feature',
-  		geometry: poly1
-  	};
-  }
-  if(poly2.type !== 'Feature') {
-  	poly2 = {
-  		type: 'Feature',
-  		geometry: poly2
-  	};
-  }
-
   var reader = new jsts.io.GeoJSONReader(),
-    a = reader.read(JSON.stringify(poly1.geometry)),
-    b = reader.read(JSON.stringify(poly2.geometry)),
+    a = reader.read(JSON.stringify(poly1)),
+    b = reader.read(JSON.stringify(poly2)),
     intersection = a.intersection(b),
     parser = new jsts.io.GeoJSONParser();
 
@@ -32,4 +41,4 @@ module.exports = function(poly1, poly2){
       geometry: intersection
     };
   }
-}
+};
