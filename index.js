@@ -6,9 +6,9 @@ var featurecollection = require('turf-featurecollection');
  * Takes two {@link Polygon} features and finds their intersection.
  *
  * @module turf/intersect
- * @param {Polygon} a
- * @param {Polygon} b
- * @return {Polygon}
+ * @param {Polygon} poly1 the first Polygon
+ * @param {Polygon} poly2 the second Polygon
+ * @return {Polygon} a Polygon feature representing the area where `poly1` and `poly2` overlap
  * @example
  * var a = turf.polygon([[[10,0],[20,10],[20,0],[10,0]]]);
  * a.properties.fill = '#0f0';
