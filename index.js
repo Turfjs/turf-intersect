@@ -3,7 +3,7 @@ var jsts = require('jsts');
 var featurecollection = require('turf-featurecollection');
 
 /**
- * Find the intersection of two Polygons.
+ * Takes two {@link Polygon} features and finds their intersection.
  *
  * @module turf/intersect
  * @param {Polygon} a
