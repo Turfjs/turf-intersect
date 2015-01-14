@@ -10,18 +10,31 @@ var featurecollection = require('turf-featurecollection');
  * @param {Polygon} poly2 the second Polygon
  * @return {Polygon} a Polygon feature representing the area where `poly1` and `poly2` overlap
  * @example
- * var a = turf.polygon([[[10,0],[20,10],[20,0],[10,0]]]);
- * a.properties.fill = '#0f0';
- * var b = turf.polygon([[[10+5,0+5],[20+5,10+5],[20+5,0+5],[10+5,0+5]]]);
- * b.properties.fill = '#00f';
- * var erased = turf.erase(JSON.parse(JSON.stringify(a)), b);
- * var a = turf.polygon([[[10,0],[20,10],[20,0],[10,0]]]);
- * a.properties.fill = '#0f0';
- * var b = turf.polygon([[[10+5,0+5],[20+5,10+5],[20+5,0+5],[10+5,0+5]]]);
- * b.properties.fill = '#00f';
- * var intersection = turf.intersect(a, b);
- * //=a
- * //=b
+ * var poly1 = turf.polygon([[
+ *  [-122.801742, 45.48565],
+ *  [-122.801742, 45.60491],
+ *  [-122.584762, 45.60491],
+ *  [-122.584762, 45.48565],
+ *  [-122.801742, 45.48565]
+ * ]]);
+ * poly1.properties.fill = '#0f0';
+ * var poly2 = turf.polygon([[
+ *  [-122.520217, 45.535693],
+ *  [-122.64038, 45.553967],
+ *  [-122.720031, 45.526554],
+ *  [-122.669906, 45.507309],
+ *  [-122.723464, 45.446643],
+ *  [-122.532577, 45.408574],
+ *  [-122.487258, 45.477466],
+ *  [-122.520217, 45.535693]
+ * ]]);
+ * poly2.properties.fill = '#00f';
+ * var polygons = turf.featurecollection([poly1, poly2]);
+ *
+ * var intersection = turf.intersect(poly1, poly2);
+ *
+ * //=polygons
+ *
  * //=intersection
  */
 module.exports = function(poly1, poly2){
