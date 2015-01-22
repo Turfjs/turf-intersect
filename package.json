@@ -4,7 +4,8 @@
   "description": "find the intersection of spatial features",
   "main": "index.js",
   "scripts": {
-    "test": "node test/test.js"
+    "test": "node test/test.js",
+    "doc": "dox -r < index.js | doxme --readme > README.md"
   },
   "repository": {
     "type": "git",
@@ -24,10 +25,12 @@
   "devDependencies": {
     "benchmark": "^1.0.0",
     "glob": "~4.3.1",
-    "tape": "~3.0.3"
+    "tape": "~3.0.3",
+    "dox": "^0.6.1",
+    "doxme": "^1.4.2"
   },
   "dependencies": {
     "jsts": "~0.15.0",
-    "turf-featurecollection": "~1.0.0"
+    "turf-featurecollection": "^1.0.0"
   }
 }
