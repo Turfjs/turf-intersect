@@ -9,7 +9,7 @@ var featurecollection = require('turf-featurecollection');
  * @category transformation
  * @param {Polygon} poly1 the first Polygon
  * @param {Polygon} poly2 the second Polygon
- * @return {Polygon} a Polygon feature representing the area where `poly1` and `poly2` overlap
+ * @return {Polygon|undefined|MultiLineString} if `poly1` and `poly2` overlap, returns a Polygon feature representing the area they overlap; if `poly1` and `poly2` do not overlap, returns `undefined`; if `poly1` and `poly2` share a border, a MultiLineString of the locations where their borders are shared
  * @example
  * var poly1 = {
  *   "type": "Feature",
