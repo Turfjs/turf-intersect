@@ -3,7 +3,7 @@ var intersect = require('../'),
   glob = require('glob'),
   fs = require('fs');
 
-var REGEN = true;
+var REGEN = false;
 
 test('intersect -- features', function(t){
   glob.sync(__dirname + '/fixtures/in/*.json').forEach(function(input) {
