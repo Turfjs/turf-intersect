@@ -59,7 +59,7 @@ var featurecollection = require('turf-featurecollection');
  * //=intersection
  */
 module.exports = function(poly1, poly2){
-  var geom1;
+  var geom1, geom2;
   if(poly1.type === 'Feature') geom1 = poly1.geometry;
   else geom1 = poly1;
   if(poly2.type === 'Feature') geom2 = poly2.geometry;
