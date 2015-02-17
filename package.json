@@ -30,7 +30,6 @@
     "doxme": "^1.4.3"
   },
   "dependencies": {
-    "jsts": "~0.15.0",
-    "turf-featurecollection": "^1.0.0"
+    "jsts": "~0.15.0"
   }
 }

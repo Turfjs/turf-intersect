@@ -1,6 +1,5 @@
 // depend on jsts for now https://github.com/bjornharrtell/jsts/blob/master/examples/overlay.html
 var jsts = require('jsts');
-var featurecollection = require('turf-featurecollection');
 
 /**
  * Takes two {@link Polygon} features and finds their intersection.
