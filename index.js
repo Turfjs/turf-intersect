@@ -2,7 +2,7 @@
 var jsts = require('jsts');
 
 /**
- * Takes two polygons and finds their intersection. If they share a border, returns the border; if they don't intersect, returns undefined.
+ * Takes two {@link Polygon|polygons} and finds their intersection. If they share a border, returns the border; if they don't intersect, returns undefined.
  *
  * @module turf/intersect
  * @category transformation
