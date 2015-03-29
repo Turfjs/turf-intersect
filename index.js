@@ -57,7 +57,7 @@ var jsts = require('jsts');
  *
  * //=intersection
  */
-module.exports = function(poly1, poly2){
+module.exports = function(poly1, poly2) {
   var geom1, geom2;
   if(poly1.type === 'Feature') geom1 = poly1.geometry;
   else geom1 = poly1;
@@ -71,7 +71,7 @@ module.exports = function(poly1, poly2){
 
   intersection = parser.write(intersection);
   if(intersection.type === 'GeometryCollection' && intersection.geometries.length === 0) {
-    return;
+    return undefined;
   } else {
     return {
       type: 'Feature',
