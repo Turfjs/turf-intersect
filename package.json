@@ -31,6 +31,6 @@
   },
   "dependencies": {
     "turf-featurecollection": "^1.0.0",
-    "greiner-hormann": "tchannel/greiner-hormann"
+    "greiner-hormann": "tchannel/greiner-hormann#master"
   }
 }
