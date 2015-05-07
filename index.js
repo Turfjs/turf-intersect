@@ -1,4 +1,4 @@
-var gh = require('greiner-hormann');
+var gh = require('gh-clipping-algorithm');
 
 /**
  * Takes two {@link Polygon} features and finds their intersection.

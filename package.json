@@ -31,6 +31,6 @@
     "geojson-equality": "^0.1.4"
   },
   "dependencies": {
-    "greiner-hormann": "tchannel/greiner-hormann#master"
+    "gh-clipping-algorithm": "^0.1.0"
   }
 }
