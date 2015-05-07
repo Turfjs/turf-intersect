@@ -27,9 +27,10 @@
     "glob": "~4.3.5",
     "tape": "~3.5.0",
     "dox": "^0.6.1",
-    "doxme": "^1.4.3"
+    "doxme": "^1.4.3",
+    "geojson-equality": "^0.1.4"
   },
   "dependencies": {
-    "jsts": "~0.15.0"
+    "greiner-hormann": "tchannel/greiner-hormann#master"
   }
 }
