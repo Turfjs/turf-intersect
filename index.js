@@ -1,5 +1,5 @@
 // depend on jsts for now https://github.com/bjornharrtell/jsts/blob/master/examples/overlay.html
-var gh = require('greiner-hormann');
+var gh = require('gh-clipping-algorithm');
 var featurecollection = require('turf-featurecollection');
 
 /**
