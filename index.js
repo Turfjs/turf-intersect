@@ -57,7 +57,6 @@ var gh = require('gh-clipping-algorithm');
  * //=intersection
  */
 module.exports = function(poly1, poly2) {
-  // console.log(poly1);
   var a = poly1.coordinates ? poly1.coordinates : poly1.geometry.coordinates;
   var b = poly2.coordinates ? poly2.coordinates : poly2.geometry.coordinates;
   var u = gh.intersect(a, b);
