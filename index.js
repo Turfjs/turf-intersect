@@ -3,13 +3,13 @@ var gh = require('gh-clipping-algorithm');
 var featurecollection = require('turf-featurecollection');
 
 /**
- * Takes two {@link Polygon} features and finds their intersection.
+ * Takes two {@link Polygon|polygons} and finds their intersection. If they share a border, returns the border; if they don't intersect, returns undefined.
  *
  * @module turf/intersect
  * @category transformation
- * @param {Polygon} poly1 the first Polygon
- * @param {Polygon} poly2 the second Polygon
- * @return {Polygon|undefined|MultiLineString} if `poly1` and `poly2` overlap, returns a Polygon feature representing the area they overlap; if `poly1` and `poly2` do not overlap, returns `undefined`; if `poly1` and `poly2` share a border, a MultiLineString of the locations where their borders are shared
+ * @param {Feature<Polygon>} poly1 the first polygon
+ * @param {Feature<Polygon>} poly2 the second polygon
+ * @return {(Feature<Polygon>|undefined|Feature<MultiLineString>)} if `poly1` and `poly2` overlap, returns a Polygon feature representing the area they overlap; if `poly1` and `poly2` do not overlap, returns `undefined`; if `poly1` and `poly2` share a border, a MultiLineString of the locations where their borders are shared
  * @example
  * var poly1 = {
  *   "type": "Feature",
@@ -59,7 +59,6 @@ var featurecollection = require('turf-featurecollection');
  * //=intersection
  */
 module.exports = function(poly1, poly2) {
-  // console.log(poly1);
   var a = poly1.coordinates ? poly1.coordinates : poly1.geometry.coordinates;
   var b = poly2.coordinates ? poly2.coordinates : poly2.geometry.coordinates;
   var u = gh.intersect(a, b);
