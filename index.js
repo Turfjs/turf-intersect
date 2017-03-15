@@ -1,5 +1,4 @@
-// depend on jsts for now https://github.com/bjornharrtell/jsts/blob/master/examples/overlay.html
-var jsts = require('jsts');
+var gh = require('gh-clipping-algorithm');
 
 /**
  * Takes two {@link Polygon|polygons} and finds their intersection. If they share a border, returns the border; if they don't intersect, returns undefined.
@@ -58,25 +57,32 @@ var jsts = require('jsts');
  * //=intersection
  */
 module.exports = function(poly1, poly2) {
-  var geom1, geom2;
-  if(poly1.type === 'Feature') geom1 = poly1.geometry;
-  else geom1 = poly1;
-  if(poly2.type === 'Feature') geom2 = poly2.geometry;
-  else geom2 = poly2;
-  var reader = new jsts.io.GeoJSONReader();
-  var a = reader.read(JSON.stringify(geom1));
-  var b = reader.read(JSON.stringify(geom2));
-  var intersection = a.intersection(b);
-  var parser = new jsts.io.GeoJSONParser();
+  var a = poly1.coordinates ? poly1.coordinates : poly1.geometry.coordinates;
+  var b = poly2.coordinates ? poly2.coordinates : poly2.geometry.coordinates;
+  var u = gh.intersect(a, b);
 
-  intersection = parser.write(intersection);
-  if(intersection.type === 'GeometryCollection' && intersection.geometries.length === 0) {
+  var feature = {
+    "type": "Feature",
+    "properties": {},
+    "geometry": {}
+  };
+
+  if (!u || u.length == 0) {
     return undefined;
-  } else {
-    return {
-      type: 'Feature',
-      properties: {},
-      geometry: intersection
-    };
   }
+
+  if (gh.utils.isMultiPolygon(u)) {
+    if (u.length > 1) {
+      feature.geometry.type = "MultiPolygon";
+      feature.geometry.coordinates = u;
+    } else {
+      feature.geometry.type = "Polygon";
+      feature.geometry.coordinates = u[0];
+    }
+  } else if (gh.utils.isPolygon(u)) {
+    feature.geometry.type = "Polygon";
+    feature.geometry.coordinates = u;
+  }
+
+  return feature;
 };
