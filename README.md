@@ -77,7 +77,7 @@ var intersection = turf.intersect(poly1, poly2);
 Requires [nodejs](http://nodejs.org/).
 
 ```sh
-$ npm install turf-intersect
+$ npm install @turf/intersect
 ```
 
 ## Tests
