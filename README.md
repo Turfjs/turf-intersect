@@ -1,3 +1,4 @@
+# DEPRECATED - replaced with [`@turf/intersect`](https://github.com/Turfjs/turf/tree/master/packages/turf-intersect)
 # turf-intersect
 
 [![build status](https://secure.travis-ci.org/Turfjs/turf-intersect.png)](http://travis-ci.org/Turfjs/turf-intersect)
