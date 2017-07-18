@@ -57,12 +57,10 @@ var jsts = require('jsts');
  *
  * //=intersection
  */
-module.exports = function(poly1, poly2) {
-  var geom1, geom2;
-  if(poly1.type === 'Feature') geom1 = poly1.geometry;
-  else geom1 = poly1;
-  if(poly2.type === 'Feature') geom2 = poly2.geometry;
-  else geom2 = poly2;
+module.exports = function (poly1, poly2) {
+  var geom1 = (poly1.type === 'Feature') ? poly1.geometry : poly1;
+  var geom2 = (poly2.type === 'Feature') ? poly2.geometry : poly2;
+
   var reader = new jsts.io.GeoJSONReader();
   var a = reader.read(JSON.stringify(geom1));
   var b = reader.read(JSON.stringify(geom2));
@@ -70,7 +68,7 @@ module.exports = function(poly1, poly2) {
   var parser = new jsts.io.GeoJSONParser();
 
   intersection = parser.write(intersection);
-  if(intersection.type === 'GeometryCollection' && intersection.geometries.length === 0) {
+  if (intersection.type === 'GeometryCollection' && intersection.geometries.length === 0) {
     return undefined;
   } else {
     return {
